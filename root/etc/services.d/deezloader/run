@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+cd /deezloaderremix
+
+HOME=/deez
+
+exec \
+	s6-setuidgid abc node /deezloaderremix/app/app.js

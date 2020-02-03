@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# set home of the abc user
+
+usermod -d /deez abc
+
+# permissions
+echo "[cont-init.d] Setting permissions this may take some time"
+
+chown -R abc:abc \
+ /deez/.config/Deezloader\ Remix/
+
+chown abc:abc \
+ /downloads/

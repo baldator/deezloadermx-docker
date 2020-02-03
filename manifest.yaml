@@ -1,0 +1,6 @@
+image: baldator/deezloaderrmx:latest
+manifests:
+  - image: baldator/deezloaderrmx:x86
+    platform:
+      architecture: x86
+      os: linux
