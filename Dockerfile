@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.10
+FROM i386/alpine:3.10
 
 ENV PUID=1000
 ENV PGID=1000
