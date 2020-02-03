@@ -14,7 +14,6 @@ RUN \
     unzip \
     jq && \
     mkdir /deez && \
-    chown abc:abc /deez && \
     rm -R /config && \
     ln -sf /deez/.config/Deezloader\ Remix/ /config && \
     ln -sf /downloads /deez/Deezloader\ Music
