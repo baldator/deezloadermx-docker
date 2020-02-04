@@ -16,7 +16,7 @@ $ docker run -d --name Deezldr \
               -e PUID=1000 \
               -e PGID=1000 \
               -p 1730:1730 \
-              bocki/deezloaderrmx
+              baldator/deezloaderrmx
 ```
 
 ### Example for Docker Compose:
@@ -52,17 +52,9 @@ services:
 
 To access the web interface, go to http://YOURSERVERIP:1730 
 
-## Tags
-
-`latest`                : Latest state of the master branch. Can be considered "working".
-
-`dev`                   : Latest state of the development branch. Highly unstable, can break at any time. You should not generally use this. 
-
-Both tags include `amd64`, `arm32v7` and `arm64v8` architectures. Big thanks to tempestnano on github for the arm containers!
-
 ## Disclaimer and Links
 
-I am in no way affiliated with the DeezloaderRMX project (or any other Deezloader project for that matter), I just wanted the challenge to create my first Docker container.
+I am in no way affiliated with the DeezloaderRMX project.
 
 Dockerhub link for this container: https://hub.docker.com/r/baldator/deezloaderrmx
 
