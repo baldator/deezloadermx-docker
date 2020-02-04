@@ -26,6 +26,38 @@ RUN apk add --update s6 s6-portable-utils && \
     rm -rf /var/cache/apk/* && \
     rm -rf ${TMP_BUILD_DIR}
 
+# environment variables
+ENV PS1="$(whoami)@$(hostname):$(pwd)\\$ " \
+HOME="/root" \
+TERM="xterm"
+
+RUN \
+ echo "**** install build packages ****" && \
+ apk add --no-cache --virtual=build-dependencies \
+	curl \
+	tar && \
+ echo "**** install runtime packages ****" && \
+ apk add --no-cache \
+	bash \
+	ca-certificates \
+	coreutils \
+	shadow \
+	tzdata && \
+ echo "**** create abc user and make our folders ****" && \
+ groupmod -g 1000 users && \
+ useradd -u 911 -U -d /config -s /bin/false abc && \
+ usermod -G users abc && \
+ mkdir -p \
+	/app \
+	/config \
+	/defaults && \
+ echo "**** cleanup ****" && \
+ apk del --purge \
+	build-dependencies && \
+ rm -rf \
+	/tmp/*
+
+
 RUN \
     apk update && \
     apk add --no-cache \
@@ -38,6 +70,7 @@ RUN \
     jq && \
     mkdir /deez && \
     chown abc:abc /deez && \
+    rm -R /config && \
     ln -sf /deez/.config/Deezloader\ Remix/ /config && \
     ln -sf /downloads /deez/Deezloader\ Music
 
